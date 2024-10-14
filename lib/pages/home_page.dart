@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: [
                 Text("I want to ",style: TextStyle(fontSize: 32),),
-                Text("Eat",style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, decoration: TextDecoration.underline),),
+                Text("Sleep",style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, decoration: TextDecoration.underline),),
       
               ],
             ),
