@@ -19,13 +19,14 @@ class _HomePageState extends State<HomePage> {
   List<Widget> myTabs = [ 
 
     //dounut tab
-    const MyTab(iconPath: 'lib/icons/soda.png'),
-    const MyTab(iconPath: 'lib/icons/burger.png'),
-    const MyTab(iconPath: 'lib/icons/pastel.png'),
-    const MyTab(iconPath: 'lib/icons/pizza.png'),
-    const MyTab(iconPath: 'lib/icons/donut.png'),
+    const MyTab(iconPath: 'lib/icons/soda.png',name:'1'),
+    const MyTab(iconPath: 'lib/icons/burger.png',name:'2'),
+    const MyTab(iconPath: 'lib/icons/pastel.png',name:'3'),
+    const MyTab(iconPath: 'lib/icons/pizza.png',name:'4'),
+    const MyTab(iconPath: 'lib/icons/donut.png',name:'5'),
   ];
   @override
+  
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: myTabs.length,
@@ -64,10 +65,68 @@ class _HomePageState extends State<HomePage> {
           pastelTab(),
           pizzaTab(),
           donutTab()
-          ]))
-          //Tab bar view 
-        ],),
+          ])),
+
+          // Contenedor del carrito
+          Container(
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3), // Cambia la posición de la sombra
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Información de items y precio
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '2 Items | \$45',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
+                    SizedBox(height: 5),
+                    Text(
+                      'Delivery Charges Included',
+                      style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                    ),
+                  ],
+                ),
+                // Botón "View Cart"
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.pink, // Color del botón
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                  onPressed: () {
+                    // Acción al presionar el botón
+                  },
+                  child: Text(
+                    'View Cart',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ]),
       ),
     );
   }
 }
+          //Tab bar view 
